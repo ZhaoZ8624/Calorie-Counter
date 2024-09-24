@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>The Calorie Counter</title>
+		<style></style>
+		<script>
+		function initialize(){
+			appetizer = document.getElementById("appetizerInfo");
+			entree = document.getElementById("entreeInfo");
+			dessert = document.getElementById("dessertInfo");
+			appetizerPro = 0;
+			entreePro = 0;
+			dessertPro = 0;
+			appetizerCarb = 0;
+			entreeCarb = 0;
+			dessertCarb = 0;
+			appetizerFat = 0;
+			entreeFat = 0;
+			dessertFat = 0;
+			appetizerCal = 0;
+			entreeCal = 0;
+			dessertCal = 0;
+			cal = 0;
+		}
+		function display(){
+			appetizer.innerHTML = "Protein: "+appetizerPro+" Carbohydrate: "+appetizerCarb+" Fat: "+appetizerFat+" Calorie: "+appetizerCal;
+			entree.innerHTML = "Protein: "+entreePro+" Carbohydrate: "+entreeCarb+" Fat: "+entreeFat+" Calorie: "+entreeCal;
+			dessert.innerHTML = "Protein: "+dessertPro+" Carbohydrate: "+dessertCarb+" Fat: "+dessertFat+" Calorie: "+dessertCal;
+			totalCal.innerHTML = "Calories: "+cal;
+		}
+		function aAddP(num){
+			appetizerPro+=num;
+			display();
+		}
+		function aAddC(num){
+			appetizerCarb+=num;
+			display();
+		}
+		function aAddF(num){
+			appetizerFat+=num;
+			display();
+		}
+		function aSubP(num){
+			if (appetizerPro > 0){
+				appetizerPro-=num;
+			}
+			display();
+		}
+		function aSubC(num){
+			if (appetizerCarb > 0){
+				appetizerCarb-=num;
+			}
+			display();
+		}
+		function aSubF(num){
+			if (appetizerFat > 0){
+				appetizerFat-=num;
+			}
+			display();
+		}
+		function aCal(){
+			appetizerCal = appetizerPro*4 + appetizerCarb*4 + appetizerFat*9;
+			display();
+		}
+		function eAddP(num){
+			entreePro+=num;
+			display();
+		}
+		function eAddC(num){
+			entreeCarb+=num;
+			display();
+		}
+		function eAddF(num){
+			entreeFat+=num;
+			display();
+		}
+		function eSubP(num){
+			if (entreePro > 0){
+				entreePro-=num;
+			}
+			display();
+		}
+		function eSubC(num){
+			if (entreeCarb > 0){
+				entreeCarb-=num;
+			}
+			display();
+		}
+		function eSubF(num){
+			if (entreeFat > 0){
+				entreeFat-=num;
+			}
+			display();
+		}
+		function eCal(){
+			entreeCal = entreePro*4 + entreeCarb*4 + entreeFat*9;
+			display();
+		}
+		function dAddP(num){
+			dessertPro+=num;
+			display();
+		}
+		function dAddC(num){
+			dessertCarb+=num;
+			display()
+		}
+		function dAddF(num){
+			dessertFat+=num;
+			display();
+		}
+		function dSubP(num){
+			if (dessertPro > 0){
+				dessertPro-=num;
+			}
+			display();
+		}
+		function dSubC(num){
+			if (dessertCarb > 0){
+				dessertCarb-=num;
+			}
+			display();
+		}
+		function dSubF(num){
+			if (dessertFat > 0){
+				dessertFat-=num;
+			}
+			display();
+		}
+		function dCal(){
+			dessertCal = dessertPro*4 + dessertCarb*4 + dessertFat*9;
+			display();
+		}
+		function allCal(){
+			cal = appetizerCal+entreeCal+dessertCal;
+			display();
+		}
+		function resetAppetizer(){
+			appetizerPro = 0;
+			appetizerCarb = 0;
+			appetizerFat = 0;
+			appetizerCal = 0;
+			allCal();
+		}
+		function resetEntree(){
+			entreePro = 0;
+			entreeCarb = 0;
+			entreeFat = 0;
+			entreeCal = 0;
+			allCal();
+		}
+		function resetDessert(){
+			dessertPro = 0;
+			dessertCarb = 0;
+			dessertFat = 0;
+			dessertCal = 0;
+			allCal();
+		}
+		function resetAll(){
+			appetizerPro = 0;
+			entreePro = 0;
+			dessertPro = 0;
+			appetizerCarb = 0;
+			entreeCarb = 0;
+			dessertCarb = 0;
+			appetizerFat = 0;
+			entreeFat = 0;
+			dessertFat = 0;
+			appetizerCal = 0;
+			entreeCal = 0;
+			dessertCal = 0;
+			allCal();
+		}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<p>
+			<div id = "appetizerOut">
+				<table>
+					<tr>
+						<hr />
+						<td><button onclick = "aAddP(1);aCal();allCal();">Add 1 gram of Protein</button></td>
+						<td><button onclick = "aAddC(1);aCal();allCal();">Add 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "aAddF(1);aCal();allCal();">Add 1 gram of Fat</button></td>
+						<td><button onclick = "aSubP(1);aCal();allCal();">Subtract 1 gram of Protein</button></td>
+						<td><button onclick = "aSubC(1);aCal();allCal();">Subtract 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "aSubF(1);aCal();allCal();">Subtract 1 gram of Fat</button></td>
+					</tr>
+					<tr>
+						<hr />
+						<td><button onclick = "aAddP(5);aCal();allCal();">Add 5 grams of Protein</button></td>
+						<td><button onclick = "aAddC(5);aCal();allCal();">Add 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "aAddF(5);aCal();allCal();">Add 5 grams of Fat</button></td>
+						<td><button onclick = "aSubP(5);aCal();allCal();">Subtract 5 grams of Protein</button></td>
+						<td><button onclick = "aSubC(5);aCal();allCal();">Subtract 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "aSubF(5);aCal();allCal();">Subtract 5 grams of Fat</button></td>
+					</tr>
+					<tr>
+						<td><button onclick = "resetAppetizer();">Reset Appetizer</button></td>
+					</tr>
+				</table>
+			</div>
+			<h2>Appetizer</h1>
+			<div id = "appetizerInfo">
+				Protein: 0 Carbohydrate: 0 Fat: 0 Calorie: 0
+			</div>
+		</p>
+		<p>
+			<div id = "entreeOut">
+				<table>
+					<tr>
+						<hr />
+						<td><button onclick = "eAddP(1);eCal();allCal();">Add 1 gram of Protein</button></td>
+						<td><button onclick = "eAddC(1);eCal();allCal();">Add 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "eAddF(1);eCal();allCal();">Add 1 gram of Fat</button></td>
+						<td><button onclick = "eSubP(1);eCal();allCal();">Subtract 1 gram of Protein</button></td>
+						<td><button onclick = "eSubC(1);eCal();allCal();">Subtract 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "eSubF(1);eCal();allCal();">Subtract 1 gram of Fat</button></td>
+					</tr>
+					<tr>
+						<hr />
+						<td><button onclick = "eAddP(5);eCal();allCal();">Add 5 grams of Protein</button></td>
+						<td><button onclick = "eAddC(5);eCal();allCal();">Add 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "eAddF(5);eCal();allCal();">Add 5 grams of Fat</button></td>
+						<td><button onclick = "eSubP(5);eCal();allCal();">Subtract 5 grams of Protein</button></td>
+						<td><button onclick = "eSubC(5);eCal();allCal();">Subtract 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "eSubF(5);eCal();allCal();">Subtract 5 grams of Fat</button></td>
+					</tr>
+					<tr>
+						<td><button onclick = "resetEntree();">Reset Entree</button></td>
+					</tr>
+				</table>
+			</div>
+			<h2>Entree</h2> 
+			<div id = "entreeInfo">
+				Protein: 0 Carbohydrate: 0 Fat: 0 Calorie: 0
+			</div>
+		</p>
+		<p>
+			<div id = "dessertOut">
+				<table>
+					<tr>
+						<hr />
+						<td><button onclick = "dAddP(1);dCal();allCal();">Add 1 gram of Protein</button></td>
+						<td><button onclick = "dAddC(1);dCal();allCal();">Add 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "dAddF(1);dCal();allCal();">Add 1 gram of Fat</button></td>
+						<td><button onclick = "dSubP(1);dCal();allCal();">Subtract 1 gram of Protein</button></td>
+						<td><button onclick = "dSubC(1);dCal();allCal();">Subtract 1 gram of Carbohydrate</button></td>
+						<td><button onclick = "dSubF(1);dCal();allCal();">Subtract 1 gram of Fat</button></td>
+					</tr>
+					<tr>
+						<hr />
+						<td><button onclick = "dAddP(5);dCal();allCal();">Add 5 grams of Protein</button></td>
+						<td><button onclick = "dAddC(5);dCal();allCal();">Add 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "dAddF(5);dCal();allCal();">Add 5 grams of Fat</button></td>
+						<td><button onclick = "dSubP(5);dCal();allCal();">Subtract 5 grams of Protein</button></td>
+						<td><button onclick = "dSubC(5);dCal();allCal();">Subtract 5 grams of Carbohydrate</button></td>
+						<td><button onclick = "dSubF(5);dCal();allCal();">Subtract 5 grams of Fat</button></td>
+					</tr>
+					<tr>
+						<td><button onclick = "resetDessert();">Reset Dessert</button></td>
+					</tr>
+				</table>
+			</div>
+			<h2>Dessert</h2>
+			<div id = "dessertInfo">
+				Protein: 0 Carbohydrate: 0 Fat: 0 Calorie: 0
+			</div>
+		</p>
+		<p>
+			<h2>Total Calories</h2>
+			<div id = "totalCal">
+				Calories: 0
+			</div>
+			<table>
+				<tr>
+					<td><button onclick = "resetAll();">Reset All</button></td>
+				</tr>
+			</table>
+		</p>
+	</body>
+</html>
